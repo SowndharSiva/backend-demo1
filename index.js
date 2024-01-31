@@ -30,9 +30,10 @@ const initializeDbAndServer=async()=>{
 
 
 app.get("/",async(request,response)=>{
-    const query="SELECT * FROM product WHERE productid=1;";
-    const product=await db.get(query);
+    const query="SELECT * FROM product;";
+    const product=await db.all(query);
     response.send(product);
+    console.log(product.json());
 
 })
 
